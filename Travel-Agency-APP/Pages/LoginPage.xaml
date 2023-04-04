@@ -19,7 +19,7 @@
                 <PasswordBox x:Name="passwordBox" Margin="4"  Width="250"/>
             </StackPanel>
             <Button x:Name="LoginButton" Content="Login" Background="DodgerBlue" Foreground="White" 
-                    Click="LoginButton_Click" Width="80" HorizontalAlignment="Center" Margin="0,20"/>
+                    Click="LoginButtonClick" Width="80" HorizontalAlignment="Center" Margin="0,20"/>
             <TextBlock x:Name="ErrorMessage" Text="" FontSize="20" Margin="4" Foreground="Red" TextAlignment="Center"/>
         </StackPanel>
     </Grid>
