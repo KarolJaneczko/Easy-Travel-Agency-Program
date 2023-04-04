@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Travel-Agency-APP (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Travel-Agency-APP (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
