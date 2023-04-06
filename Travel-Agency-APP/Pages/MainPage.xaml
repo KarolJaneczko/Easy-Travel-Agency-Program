@@ -9,12 +9,92 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Logged as: "/>
                     <TextBlock x:Name="CurrentUserLogin"/>
-                </StackPanel>   
-                
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Name: "/>
+                    <TextBlock x:Name="CurrentUserName"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Surname: "/>
+                    <TextBlock x:Name="CurrentUserSurname"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Birthdate: "/>
+                    <TextBlock x:Name="CurrentUserBirthdate"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Country: "/>
+                    <TextBlock x:Name="CurrentUserCountry"/>
+                </StackPanel>
+
+                <Button x:Name="LogoutButton" Content="Logout" Background="DodgerBlue" Foreground="White" 
+                    Click="LogoutButtonClick" Width="80" HorizontalAlignment="Left" Margin="0,20"/>
+            </StackPanel>
+
+            <ListView x:Name="ContactsLV" ItemsSource="{x:Bind Orders}" IsItemClickEnabled="True" SelectionMode="None" ItemClick="{x:Bind ClickedOrder}" HorizontalAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Order">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="{x:Bind Id}" Style="{ThemeResource BaseTextBlockStyle}" Margin="5,0,5,0"/>
+                            <TextBlock  Grid.Column="1" Text="{x:Bind Country}" Style="{ThemeResource BodyTextBlockStyle}" Margin="5,0,5,0"/>
+                            <TextBlock  Grid.Column="2" Text="{x:Bind City}" Style="{ThemeResource BodyTextBlockStyle}" Margin="5,0,5,0"/>
+                            <TextBlock  Grid.Column="3" Text="{x:Bind Days}" Style="{ThemeResource BodyTextBlockStyle}" Margin="5,0,5,0"/>
+                            <TextBlock  Grid.Column="4" Text="{x:Bind Desc}" Style="{ThemeResource BodyTextBlockStyle}" Margin="5,0,5,0"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Customer name: "/>
+                    <TextBlock x:Name="OrderCustomerName"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Customer surname: "/>
+                    <TextBlock x:Name="OrderCustomerSurname"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Customer birthdate: "/>
+                    <TextBlock x:Name="OrderCustomerBirthdate"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Customer country: "/>
+                    <TextBlock x:Name="OrderCustomerCountry"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                    <Button x:Name="AddOrder" Content="Add new order" Background="DodgerBlue" Foreground="White" 
+                    Click="AddButtonClick" Width="200" HorizontalAlignment="Left" Margin="0,5"/>
+                    <Button x:Name="UpdateOrder" Content="Update this order" Background="DodgerBlue" Foreground="White" 
+                    Click="UpdateButtonClick" Width="200" HorizontalAlignment="Left" Margin="0,5"/>
+                    <Button x:Name="RemoveOrder" Content="Remove this order" Background="DodgerBlue" Foreground="White" 
+                    Click="RemoveButtonClick" Width="200" HorizontalAlignment="Left" Margin="0,5"/>
+                    <TextBlock x:Name="ErrorMessage" Text="" FontSize="20" Margin="4" Foreground="Red" TextAlignment="Center"/>
+                </StackPanel>
             </StackPanel>
             
         </StackPanel>
