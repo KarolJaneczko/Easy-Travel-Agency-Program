@@ -31,6 +31,19 @@ namespace Travel_Agency_API.Controllers {
             }
             return new ApiResponse(HttpStatusCode.OK);
         }
+        [HttpGet("GetCustomer")]
+        public CustomerDTO GetCustomer(string login) {
+            var userID = dbContext.Users?.FirstOrDefault(x => x.UserLogin == login)?.UserId;
+            var customer = dbContext.Customers?.FirstOrDefault(x => x.UserId == userID);
+            var result = new CustomerDTO() {
+                UserLogin = login,
+                CustomerName = customer?.CustomerName ?? "Not found",
+                CustomerSurname = customer?.CustomerSurname ?? "Not found",
+                CustomerBirthdate = customer?.CustomerBirthdate ?? DateTime.Now,
+                CustomerCountry = customer?.CustomerCountry ?? "Not found"
+            };
+            return result;
+        }
 
     }
 }
