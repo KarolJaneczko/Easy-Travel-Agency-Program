@@ -9,8 +9,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Login" FontSize="36" Margin="4" TextAlignment="Center"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="CurrentUserLogin"/>
+                </StackPanel>   
+                
+            </StackPanel>
+            
         </StackPanel>
     </Grid>
 </Page>

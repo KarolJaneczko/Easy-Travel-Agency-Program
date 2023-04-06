@@ -23,11 +23,14 @@ namespace Travel_Agency_APP.Pages {
             try {
                 var result = await BaseClient.SendApiRequest(HttpMethod.Get, string.Join(string.Empty, ApiPaths.Login, args));
                 var apiResponse = JsonConvert.DeserializeObject<ApiGetResponse>(result);
+
                 if (apiResponse.StatusCode == HttpStatusCode.OK) {
+                    AppProperties.SetCurrentLogin(login);
                     Frame.Navigate(typeof(MainPage));
                 } else {
                     ShowError(apiResponse.ErrorMessage);
                 }
+
             } catch (Exception ex) {
                 ShowError(ex.Message);
             }

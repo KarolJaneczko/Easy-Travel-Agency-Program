@@ -38,7 +38,7 @@ namespace Art_Critique_Api.Controllers {
                 if (user?.UserPassword == encryptedPassword) {
                     return new ApiResponse(HttpStatusCode.OK);
                 } else {
-                    return new ApiResponse(HttpStatusCode.NoContent, "Błędny login lub hasło!");
+                    return new ApiResponse(HttpStatusCode.NoContent, "Invalid login or password!");
                 }
             } catch (Exception ex) {
                 return new ApiResponse(HttpStatusCode.BadRequest, ex.Message, ex.InnerException?.Message);
